@@ -7,6 +7,8 @@ authors = ["Romain Libert <romainlibert291091@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.8"
 dotenv-python = "^0.0.1"
+flask = "^1.1.2"
+click = "^7.1.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
