@@ -22,7 +22,7 @@ class EnvironConfig:
             self.init_app(app)
 
     def init_app(self, app):
-        self.store_keys(app)
+        self._store_keys(app)
 
         if not hasattr(app, "extensions"):
             app.extensions = {}
@@ -34,9 +34,10 @@ class EnvironConfig:
     def load_dotenv(self, filename=None):
         dotenv.load_dotenv(filename)
 
-    def store_keys(self, app):
-        for key, default, conv in self._config:
-            value = self.get_config(key, default, conv)
+    def _store_keys(self, app):
+        for config in self._config:
+            key = config[0]
+            value = self.get_config(*config)
 
             app.config[key] = value
 
