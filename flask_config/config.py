@@ -4,6 +4,7 @@ import dotenv
 import logging
 from os import environ
 
+from flask_config import converters
 from flask_config.exc import ConfigError
 
 logger = logging.getLogger(__name__)
@@ -39,7 +40,7 @@ class EnvironConfig:
 
             app.config[key] = value
 
-    def get_config(self, key, default=None, conv=str):
+    def get_config(self, key, default=None, conv=converters.String):
         raise_on_error = default is None
 
         try:

@@ -1,9 +1,30 @@
 # -*- coding: utf-8 -*-
 
-TRUE_VALUES = ["1", "y", "yes", "true", "t"]
+
+class Converter:
+    def __call__(self, value):
+        return self._convert(value)
 
 
-def to_bool(value):
-    if isinstance(value, str):
-        return value.lower() in TRUE_VALUES
-    return bool(value)
+class Boolean(Converter):
+    TRUE = ["1", "y", "yes", "true", "t"]
+
+    def _convert(self, value):
+        if isinstance(value, str):
+            return value.lower() in Boolean.TRUE
+        return bool(value)
+
+
+class String(Converter):
+    def _convert(self, value):
+        return str(value)
+
+
+class Integer(Converter):
+    def _convert(self, value):
+        return int(value)
+
+
+class Float(Converter):
+    def _convert(self, value):
+        return float(value)
