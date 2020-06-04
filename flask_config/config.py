@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-import dotenv
 import logging
 from os import environ
 
+import dotenv
 from flask_config import converters
 from flask_config.exc import ConfigError
 

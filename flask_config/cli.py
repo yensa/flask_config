@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
+import pprint
+
 import click
 from flask import current_app
 from flask.cli import with_appcontext
-import pprint
 
 
 @click.command("showconfig", help="Shows the current config of the application")
