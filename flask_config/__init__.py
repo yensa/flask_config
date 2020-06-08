@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 from .config import EnvironConfig
 from .cli import show_config
-
-import converters
-
+from . import converters
 
 __version__ = "0.1.0"
 

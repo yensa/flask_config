@@ -44,12 +44,13 @@ class EnvironConfig:
     def get_config(self, key, default=None, conv=converters.String):
         raise_on_error = default is None
 
+        value = default
+
         try:
-            value = conv(environ[key])
+            value = conv()(environ[key])
         except KeyError:
             if raise_on_error:
                 raise ConfigError(f"Cannot find a value for key {key}")
-            value = default
         except TypeError:
             logger.warn(
                 f"Found a value for {key} but could not convert using {conv}"
